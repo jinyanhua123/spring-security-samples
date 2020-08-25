@@ -9,10 +9,20 @@
 	<artifactId>travel-spring-cloud-gateway</artifactId>
 	<dependencies>
 		<!-- Authenticate with Keycloak -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-oauth2-client</artifactId>
-		</dependency>
+					<dependency>
+									<groupId>org.springframework.boot</groupId>
+									<artifactId>spring-boot-starter-oauth2-client</artifactId>
+					</dependency>
+					<dependency>
+									<groupId>org.springframework.boot</groupId>
+									<artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
+					</dependency>
+
+					<dependency>
+									<groupId>javax.servlet</groupId>
+									<artifactId>servlet-api</artifactId>
+									<version>2.5</version>
+					</dependency>
 		<!-- Gateway itself -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>

@@ -15,6 +15,9 @@ spring:
           keycloak:
             client-id: spring-cloud-gateway-client
             client-secret: 016c6e1c-9cbe-4ad3-aee1-01ddbb370f32
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8090/auth/realms/spring-cloud-gateway-realm
 
   cloud:
     gateway:
@@ -22,12 +25,10 @@ spring:
       - TokenRelay
 
       routes:
-      - id: httpbin
-        uri: https://httpbin.org
+      - id: openfhir
+        uri: http://127.0.0.1:8099
         predicates:
-        - Path=/httpbin/**
-        filters:
-        - StripPrefix=1
+        - Path=/openfhir_api_war_exploded/Patient/{patientid}
 
       - id: flights-service
         uri: http://127.0.0.1:8081/flights

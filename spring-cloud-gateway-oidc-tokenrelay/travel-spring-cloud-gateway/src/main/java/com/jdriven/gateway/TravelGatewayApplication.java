@@ -34,7 +34,7 @@ public class TravelGatewayApplication {
 	@GetMapping("/whoami")
 	@ResponseBody
 	public Map<String, Object> index(
-			@RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
+		    @RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient,
 			@AuthenticationPrincipal OidcUser oidcUser) {
 		Map<String, Object> model = new HashMap<>();
 		model.put("clientName", authorizedClient.getClientRegistration().getClientName());
