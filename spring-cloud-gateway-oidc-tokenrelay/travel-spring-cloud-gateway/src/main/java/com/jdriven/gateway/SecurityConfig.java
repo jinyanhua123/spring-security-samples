@@ -17,9 +17,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http,
 															ReactiveClientRegistrationRepository clientRegistrationRepository) {
-		http.oauth2Login();
-		http.logout(logout -> logout.logoutSuccessHandler(new OidcClientInitiatedServerLogoutSuccessHandler(
-			clientRegistrationRepository)));
+
 		// Require authentication for all requests
 		http.authorizeExchange()
 			.pathMatchers(HttpMethod.GET, "/openfhir_api_war_exploded/Patient/*").hasAuthority("SCOPE_patient")
